@@ -1,0 +1,10 @@
+version: "2"
+sql:
+  - engine: "postgresql"         # <--- Добавьте эту строку
+    schema: "db/migration"       # Где лежат файлы миграций/схем таблиц
+    queries: "db/query.sql"       # Где лежит файл с вашими SQL-запросами
+    gen:
+      go:
+        package: "repository"     # Имя Go-пакета для сгенерированного кода
+        out: "internal/repository" # Куда положить сгенерированные файлы
+        sql_package: "pgx/v5"     # Используем pgx версии 5
